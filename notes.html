@@ -37,6 +37,22 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="index.js"></script>
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newNote = {
+        $(".note-title") : $(".note-textarea").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/notes", newNote)
+        .then(function(data) {
+          console.log("notes.html", data);
+          alert("Adding note...");
+        });
+    });
+  </script>
 </body>
 
 </html>
